@@ -78,7 +78,7 @@ hl["StatusLineNC"] = {}
 hl["Substitute"] = { fg = red5, bg = gray4 }
 hl["TabLine"] = { fg = gray6, bg = gray0 }
 hl["TabLineFill"] = { fg = gray5, bg = gray0 }
-hl["TabLineSel"] = { fg = gray8, bg = gray2 }
+hl["TabLineSel"] = { fg = blue5 }
 hl["TermCursor"] = { link = "Cursor" }
 hl["Title"] = { link = "Directory" }
 hl["Todo"] = { link = "SpecialComment" }
