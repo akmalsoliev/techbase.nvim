@@ -11,26 +11,25 @@ local gray4 = "#242932"
 local gray5 = "#3c3f51"
 local gray6 = "#41445B"
 local gray7 = "#575C71"
-local gray77 = "#78839A"
-local gray8 = "#969DB0"
-local gray9 = "#A8B2C4"
-local gray10 = "#DDE3EE"
+local gray8 = "#A8B2C4"
+local gray9 = "#DDE3EE"
 local red1 = "#331B1D"
 local red2 = "#BBBBFF"
 local red3 = "#CC8E96"
-local red4 = "#d66b7b"
+local red4 = "#DF5D5D"
 local red5 = "#ed333b"
 local yellow1 = "#F49D37"
 local yellow2 = "#F8BC77"
 local green1 = "#1B2C21"
 local green2 = "#49C78E"
-local green3 = "#71B294"
+local green3 = "#7FB99E"
+local green4 = "#708B8D"
 local blue0 = "#0E2758"
-local blue1 = "#363E69"
+local blue1 = "#19449a"
 local blue2 = "#566ab1"
 local blue3 = "#a2bcdc"
 local blue4 = "#9194B8"
-local blue5 = "#98B4FE"
+local blue5 = "#89A9FE"
 
 v.g.colors_name = "phobos-anomaly"
 
@@ -58,8 +57,8 @@ hl["MoreMsg"] = { link = "ModeMsg" }
 hl["MsgArea"] = { link = "Normal" }
 hl["MsgSeparator"] = { fg = gray2, bg = gray2 }
 hl["NonText"] = { fg = gray5 }
-hl["Normal"] = { fg = gray10 }
-hl["NormalFloat"] = { fg = gray9, bg = gray1 }
+hl["Normal"] = { fg = gray9 }
+hl["NormalFloat"] = { fg = gray8, bg = gray1 }
 hl["Pmenu"] = { fg = gray7, bg = gray2 }
 hl["PmenuMatch"] = { fg = blue4 }
 hl["PmenuMatchSel"] = { bg = gray4 }
@@ -73,7 +72,7 @@ hl["SignColumn"] = { link = "Normal" }
 hl["SpecialChar"] = { link = "Special" }
 hl["SpecialComment"] = { fg = yellow2 }
 hl["SpecialKey"] = { fg = yellow2 }
-hl["StatusLine"] = { fg = gray10 }
+hl["StatusLine"] = { fg = gray9 }
 hl["StatusLineNC"] = {}
 hl["Substitute"] = { fg = red5, bg = gray4 }
 hl["TabLine"] = { fg = gray6, bg = gray0 }
@@ -85,7 +84,7 @@ hl["Todo"] = { link = "SpecialComment" }
 hl["Visual"] = { bg = blue0 }
 hl["WarningMsg"] = { link = "Error" }
 hl["Whitespace"] = { link = "NonText" }
-hl["WinBar"] = { fg = gray77 }
+hl["WinBar"] = { fg = gray8 }
 hl["WinBarNC"] = { link = "WinBar" }
 hl["WinSeparator"] = { fg = hl["NormalFloat"]["bg"] }
 
@@ -100,7 +99,7 @@ hl["Constant"] = { fg = red2 }
 hl["Function"] = { fg = blue5 }
 hl["Keyword"] = { fg = blue3 }
 hl["Number"] = { fg = red4 }
-hl["Operator"] = { fg = yellow2 }
+hl["Operator"] = { fg = green4 }
 hl["PreProc"] = { link = "Normal" }
 hl["Special"] = { link = "Normal" }
 hl["String"] = { fg = green3 }
@@ -185,7 +184,7 @@ hl["@constant.builtin"] = { link = "Constant" }
 hl["@function.call"] = { link = "Normal" }
 hl["@markup.heading"] = { link = "Function" }
 hl["@method.call"] = { link = "Normal" }
-hl["@property"] = { link = "Keyword" }
+hl["@property"] = { link = "Normal" }
 hl["@string.documentation"] = { link = "Comment" }
 hl["@string.escape"] = { link = "@string.regex" }
 hl["@string.special"] = { link = "@string.regex" }
@@ -219,11 +218,11 @@ end
 
 -- Comment keywords
 for type, color in pairs({
-	error = { bg = red5, fg = gray10 },
-	danger = { bg = red5, fg = gray10 },
+	error = { bg = red5, fg = gray9 },
+	danger = { bg = red5, fg = gray9 },
 	warning = { bg = yellow1, fg = gray0 },
 	todo = { bg = blue4, fg = gray0 },
-	note = { bg = gray10, fg = gray0 },
+	note = { bg = gray9, fg = gray0 },
 }) do
 	hl["@comment." .. type] = color
 	hl["@comment." .. type .. ".comment"] = color
@@ -237,7 +236,7 @@ for type, color in pairs({
 	Error = red5,
 	Warn = yellow1,
 	Info = blue4,
-	Hint = gray10,
+	Hint = gray9,
 	Ok = green2,
 }) do
 	hl["Diagnostic" .. type] = { fg = color }
@@ -248,7 +247,7 @@ end
 hl["DiagnosticUnnecessary"] = { fg = hl["Comment"]["fg"], undercurl = true }
 
 hl["LspCodeLens"] = { fg = gray7 }
-hl["LspSignatureActiveParameter"] = { sp = gray10, underline = true }
+hl["LspSignatureActiveParameter"] = { sp = gray9, underline = true }
 
 -- Semantic Tokens
 for _, group in ipairs(v.fn.getcompletion("@lsp", "highlight")) do
