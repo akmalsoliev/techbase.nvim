@@ -170,6 +170,10 @@ hl["markdownListMarker"] = { link = "Normal" }
 hl["markdownRule"] = { link = "NonText" }
 hl["markdownUrl"] = { link = "@text.uri" }
 
+-- ini
+hl["dosiniHeader"] = { link = "@markup.heading.1.markdown" }
+hl["dosiniLabel"] = { link = "@property" }
+
 --------------------------------------------------
 -- Treesitter
 --------------------------------------------------
