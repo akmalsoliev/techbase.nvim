@@ -3,8 +3,8 @@ local set_hl = v.api.nvim_set_hl
 local utils = require("utils")
 
 local hl = {}
-local gray0 = "#1e2124"
-local gray1 = "#202428"
+local gray0 = "#1B1B1E"
+local gray1 = "#1F1F22"
 local gray2 = "#212428"
 local gray3 = "#23262B"
 local gray4 = "#242932"
@@ -12,23 +12,23 @@ local gray5 = "#3c3f51"
 local gray6 = "#41445B"
 local gray7 = "#575C71"
 local gray8 = "#A8B2C4"
-local gray9 = "#DDE3EE"
+local gray9 = "#F0EDEE"
 local red1 = "#331B1D"
-local red2 = "#BBBBFF"
-local red3 = "#CC8E96"
-local red4 = "#DF5D5D"
-local red5 = "#ed333b"
-local yellow1 = "#F49D37"
-local yellow2 = "#F8BC77"
+local red2 = "#FEECF9"
+local red3 = "#FB9DA9"
+local red4 = "#F96276"
+local red5 = "#F71735"
+local yellow1 = "#ECA009"
+local yellow2 = "#F9C04E"
 local green1 = "#1B2C21"
 local green2 = "#49C78E"
-local green3 = "#7FB99E"
+local green3 = "#71c6b1"
 local green4 = "#708B8D"
-local blue0 = "#0E2758"
-local blue1 = "#19449a"
-local blue2 = "#566ab1"
-local blue3 = "#a2bcdc"
-local blue4 = "#9194B8"
+local blue0 = "#162A50"
+local blue1 = "#315DAF"
+local blue2 = "#5E7CE2"
+local blue3 = "#A9B9EF"
+local blue4 = "#9297C4"
 local blue5 = "#89A9FE"
 
 v.g.colors_name = "phobos-anomaly"
@@ -38,8 +38,8 @@ v.g.colors_name = "phobos-anomaly"
 --------------------------------------------------
 hl["ColorColumn"] = {}
 hl["Conceal"] = { link = "Normal" }
-hl["CurSearch"] = { fg = gray0, bg = red4 }
-hl["Cursor"] = { bg = red5 }
+hl["CurSearch"] = { fg = gray1, bg = red4 }
+hl["Cursor"] = { bg = green2 }
 hl["CursorLine"] = { bg = gray2 }
 hl["CursorLineNr"] = { link = "Normal" }
 hl["Delimiter"] = { link = "Normal" }
@@ -48,7 +48,7 @@ hl["EndOfBuffer"] = { link = "NonText" }
 hl["Error"] = { fg = red5 }
 hl["ErrorMsg"] = { link = "Error" }
 hl["FoldColumn"] = { link = "NonText" }
-hl["Folded"] = { fg = blue4, bg = gray1 }
+hl["Folded"] = { fg = blue4, bg = gray0 }
 hl["IncSearch"] = { link = "Search" }
 hl["LineNr"] = { link = "NonText" }
 hl["MatchParen"] = { fg = yellow2, bg = gray3 }
@@ -57,26 +57,26 @@ hl["MoreMsg"] = { link = "ModeMsg" }
 hl["MsgArea"] = { link = "Normal" }
 hl["MsgSeparator"] = { fg = gray2, bg = gray2 }
 hl["NonText"] = { fg = gray5 }
-hl["Normal"] = { fg = gray9 }
-hl["NormalFloat"] = { fg = gray8, bg = gray1 }
+hl["Normal"] = { fg = gray9, bg = gray1 }
+hl["NormalFloat"] = { fg = gray8, bg = gray0 }
 hl["Pmenu"] = { fg = gray7, bg = gray2 }
-hl["PmenuMatch"] = { fg = blue4 }
+hl["PmenuMatch"] = { fg = blue5 }
 hl["PmenuMatchSel"] = { bg = gray4 }
 hl["PmenuSbar"] = { link = "Pmenu" }
 hl["PmenuSel"] = { bg = gray4 }
 hl["PmenuThumb"] = { bg = gray5 }
 hl["Question"] = { fg = green3 }
 hl["QuickFixLine"] = { link = "Search" }
-hl["Search"] = { fg = gray0, bg = yellow2 }
+hl["Search"] = { fg = gray1, bg = yellow2 }
 hl["SignColumn"] = { link = "Normal" }
 hl["SpecialChar"] = { link = "Special" }
 hl["SpecialComment"] = { fg = yellow2 }
 hl["SpecialKey"] = { fg = yellow2 }
 hl["StatusLine"] = { fg = gray9 }
 hl["StatusLineNC"] = {}
-hl["Substitute"] = { fg = red5, bg = gray4 }
-hl["TabLine"] = { fg = gray6, bg = gray0 }
-hl["TabLineFill"] = { fg = gray5, bg = gray0 }
+hl["Substitute"] = { fg = green3, bg = gray4 }
+hl["TabLine"] = { fg = gray6, bg = gray1 }
+hl["TabLineFill"] = { fg = gray5, bg = gray1 }
 hl["TabLineSel"] = { fg = blue5 }
 hl["TermCursor"] = { link = "Cursor" }
 hl["Title"] = { link = "Directory" }
@@ -89,7 +89,7 @@ hl["WinBarNC"] = { link = "WinBar" }
 hl["WinSeparator"] = { fg = hl["NormalFloat"]["bg"] }
 
 hl["FloatBorder"] = { fg = gray4, bg = hl["NormalFloat"]["bg"] }
-hl["FloatTitle"] = { fg = blue5, bg = hl["NormalFloat"]["bg"], sp = gray4, underline = true }
+hl["FloatTitle"] = { fg = blue5, bg = hl["NormalFloat"]["bg"], sp = gray4 }
 
 --------------------------------------------------
 --  Syntax
@@ -224,9 +224,9 @@ end
 for type, color in pairs({
 	error = { bg = red5, fg = gray9 },
 	danger = { bg = red5, fg = gray9 },
-	warning = { bg = yellow1, fg = gray0 },
-	todo = { bg = blue4, fg = gray0 },
-	note = { bg = gray9, fg = gray0 },
+	warning = { bg = yellow1, fg = gray1 },
+	todo = { bg = blue4, fg = gray1 },
+	note = { bg = gray9, fg = gray1 },
 }) do
 	hl["@comment." .. type] = color
 	hl["@comment." .. type .. ".comment"] = color
@@ -240,7 +240,7 @@ for type, color in pairs({
 	Error = red5,
 	Warn = yellow1,
 	Info = blue4,
-	Hint = gray9,
+	Hint = gray8,
 	Ok = green2,
 }) do
 	hl["Diagnostic" .. type] = { fg = color }
@@ -343,8 +343,33 @@ hl["CmpItemKind"] = { link = "Keyword" }
 hl["BlinkCmpDocBorder"] = { link = "FloatBorder" }
 hl["BlinkCmpDocSeparator"] = { link = "NonText" }
 hl["BlinkCmpGhostText"] = { link = "NonText" }
-hl["BlinkCmpKind"] = { fg = blue4 }
-hl["BlinkCmpLabel"] = { fg = gray7 }
+hl["BlinkCmpKind"] = { fg = blue5 }
+-- hl["BlinkCmpKindEnum"] = { fg = blue5 }
+-- hl["BlinkCmpKindFile"] = { fg = blue5 }
+-- hl["BlinkCmpKindText"] = { fg = blue5 }
+-- hl["BlinkCmpKindUnit"] = { fg = blue5 }
+-- hl["BlinkCmpKindClass"] = { fg = blue5 }
+-- hl["BlinkCmpKindColor"] = { fg = blue5 }
+-- hl["BlinkCmpKindEvent"] = { fg = blue5 }
+-- hl["BlinkCmpKindField"] = { fg = blue5 }
+-- hl["BlinkCmpKindValue"] = { fg = blue5 }
+-- hl["BlinkCmpKindFolder"] = { fg = blue5 }
+-- hl["BlinkCmpKindMethod"] = { fg = blue5 }
+-- hl["BlinkCmpKindModule"] = { fg = blue5 }
+-- hl["BlinkCmpKindStruct"] = { fg = blue5 }
+-- hl["BlinkCmpKindKeyword"] = { fg = blue5 }
+-- hl["BlinkCmpKindSnippet"] = { fg = blue5 }
+-- hl["BlinkCmpKindConstant"] = { fg = blue5 }
+-- hl["BlinkCmpKindFunction"] = { fg = blue5 }
+-- hl["BlinkCmpKindOperator"] = { fg = blue5 }
+-- hl["BlinkCmpKindProperty"] = { fg = blue5 }
+-- hl["BlinkCmpKindVariable"] = { fg = blue5 }
+-- hl["BlinkCmpKindInterface"] = { fg = blue5 }
+-- hl["BlinkCmpKindReference"] = { fg = blue5 }
+-- hl["BlinkCmpKindEnumMember"] = { fg = blue5 }
+-- hl["BlinkCmpKindConstructor"] = { fg = blue5 }
+-- hl["BlinkCmpKindTypeParameter"] = { fg = blue5 }
+hl["BlinkCmpLabel"] = { fg = gray8 }
 hl["BlinkCmpLabelDetail"] = { link = "NonText" }
 hl["BlinkCmpLabelDescription"] = { fg = gray5 }
 hl["BlinkCmpLabelMatch"] = { link = "PmenuMatch" }
