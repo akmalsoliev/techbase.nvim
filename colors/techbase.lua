@@ -3,27 +3,26 @@ local set_hl = v.api.nvim_set_hl
 local utils = require("utils")
 
 local hl = {}
-local gray1 = "#1F1F22"
-local gray2 = "#1E1E20"
-local gray3 = "#23272a"
+local gray1 = "#1e2124"
+local gray2 = "#202428"
+local gray3 = "#212428"
 local gray4 = "#242932"
 local gray5 = "#3c3f51"
 local gray6 = "#41445B"
 local gray7 = "#575C71"
-local gray8 = "#D8D1D4"
-local gray9 = "#F0EDEE"
-local red1 = "#331B1D"
+local gray8 = "#EDEEF0"
+local gray9 = "#DFE1E4"
+local red1 = "#4B2926"
 local red2 = "#FEECF9"
 local red3 = "#FB9DA9"
 local red4 = "#F96276"
 local red5 = "#F71735"
 local yellow1 = "#F59F00"
 local yellow2 = "#F8BC77"
-local green1 = "#18271D"
+local green1 = "#26484b"
 local green2 = "#49C78E"
 local green3 = "#71c6b1"
 local green4 = "#839D9A"
-local green5 = "#899B7B"
 local blue0 = "#162A50"
 local blue1 = "#315DAF"
 local blue2 = "#5E7CE2"
@@ -55,7 +54,7 @@ hl["MatchParen"] = { fg = yellow2, bg = gray3 }
 hl["ModeMsg"] = { fg = red2 }
 hl["MoreMsg"] = { link = "ModeMsg" }
 hl["MsgArea"] = { link = "Normal" }
-hl["MsgSeparator"] = { fg = gray2, bg = gray2 }
+hl["MsgSeparator"] = { fg = gray2 }
 hl["NonText"] = { fg = gray5 }
 hl["Normal"] = { fg = gray9, bg = gray1 }
 hl["NormalFloat"] = { fg = gray8, bg = gray2 }
@@ -77,7 +76,7 @@ hl["StatusLineNC"] = {}
 hl["Substitute"] = { fg = green3, bg = gray4 }
 hl["TabLine"] = { fg = gray6, bg = gray1 }
 hl["TabLineFill"] = { fg = gray5, bg = gray1 }
-hl["TabLineSel"] = { fg = green5 }
+hl["TabLineSel"] = { fg = blue2 }
 hl["TermCursor"] = { link = "Cursor" }
 hl["Title"] = { link = "Directory" }
 hl["Todo"] = { link = "SpecialComment" }
