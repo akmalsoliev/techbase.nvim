@@ -3,27 +3,27 @@ local set_hl = v.api.nvim_set_hl
 local utils = require("utils")
 
 local hl = {}
-local gray0 = "#1B1B1E"
 local gray1 = "#1F1F22"
-local gray2 = "#212428"
-local gray3 = "#23262B"
+local gray2 = "#1E1E20"
+local gray3 = "#23272a"
 local gray4 = "#242932"
 local gray5 = "#3c3f51"
 local gray6 = "#41445B"
 local gray7 = "#575C71"
-local gray8 = "#A8B2C4"
+local gray8 = "#D8D1D4"
 local gray9 = "#F0EDEE"
 local red1 = "#331B1D"
 local red2 = "#FEECF9"
 local red3 = "#FB9DA9"
 local red4 = "#F96276"
 local red5 = "#F71735"
-local yellow1 = "#ECA009"
-local yellow2 = "#F9C04E"
-local green1 = "#1B2C21"
+local yellow1 = "#F59F00"
+local yellow2 = "#F8BC77"
+local green1 = "#18271D"
 local green2 = "#49C78E"
 local green3 = "#71c6b1"
-local green4 = "#708B8D"
+local green4 = "#839D9A"
+local green5 = "#899B7B"
 local blue0 = "#162A50"
 local blue1 = "#315DAF"
 local blue2 = "#5E7CE2"
@@ -48,7 +48,7 @@ hl["EndOfBuffer"] = { link = "NonText" }
 hl["Error"] = { fg = red5 }
 hl["ErrorMsg"] = { link = "Error" }
 hl["FoldColumn"] = { link = "NonText" }
-hl["Folded"] = { fg = blue4, bg = gray0 }
+hl["Folded"] = { fg = blue4, bg = gray2 }
 hl["IncSearch"] = { link = "Search" }
 hl["LineNr"] = { link = "NonText" }
 hl["MatchParen"] = { fg = yellow2, bg = gray3 }
@@ -58,7 +58,7 @@ hl["MsgArea"] = { link = "Normal" }
 hl["MsgSeparator"] = { fg = gray2, bg = gray2 }
 hl["NonText"] = { fg = gray5 }
 hl["Normal"] = { fg = gray9, bg = gray1 }
-hl["NormalFloat"] = { fg = gray8, bg = gray0 }
+hl["NormalFloat"] = { fg = gray8, bg = gray2 }
 hl["Pmenu"] = { fg = gray7, bg = gray2 }
 hl["PmenuMatch"] = { fg = blue5 }
 hl["PmenuMatchSel"] = { bg = gray4 }
@@ -77,7 +77,7 @@ hl["StatusLineNC"] = {}
 hl["Substitute"] = { fg = green3, bg = gray4 }
 hl["TabLine"] = { fg = gray6, bg = gray1 }
 hl["TabLineFill"] = { fg = gray5, bg = gray1 }
-hl["TabLineSel"] = { fg = blue5 }
+hl["TabLineSel"] = { fg = green5 }
 hl["TermCursor"] = { link = "Cursor" }
 hl["Title"] = { link = "Directory" }
 hl["Todo"] = { link = "SpecialComment" }
@@ -88,7 +88,7 @@ hl["WinBar"] = { fg = gray8 }
 hl["WinBarNC"] = { link = "WinBar" }
 hl["WinSeparator"] = { fg = hl["NormalFloat"]["bg"] }
 
-hl["FloatBorder"] = { fg = gray4, bg = hl["NormalFloat"]["bg"] }
+hl["FloatBorder"] = { fg = gray3, bg = hl["NormalFloat"]["bg"] }
 hl["FloatTitle"] = { fg = blue5, bg = hl["NormalFloat"]["bg"], sp = gray4 }
 
 --------------------------------------------------
@@ -373,6 +373,7 @@ hl["BlinkCmpLabel"] = { fg = gray8 }
 hl["BlinkCmpLabelDetail"] = { link = "NonText" }
 hl["BlinkCmpLabelDescription"] = { fg = gray5 }
 hl["BlinkCmpLabelMatch"] = { link = "PmenuMatch" }
+hl["BlinkCmpMenuBorder"] = { fg = gray3, bg = hl["Pmenu"]["bg"] }
 hl["BlinkCmpMenuSelection"] = { link = "PmenuMatchSel" }
 
 -- rrethy/vim-illuminate
