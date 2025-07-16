@@ -5,15 +5,15 @@ vim.g.colors_name = "techbase"
 ---@param percent number positive = lighter, negative = darker
 ---@return string
 local function tint(hex, percent)
-	local r, g, b = hex:match("^#?(%x%x)(%x%x)(%x%x)$")
-	r, g, b = tonumber(r, 16), tonumber(g, 16), tonumber(b, 16)
+  local r, g, b = hex:match("^#?(%x%x)(%x%x)(%x%x)$")
+  r, g, b = tonumber(r, 16), tonumber(g, 16), tonumber(b, 16)
 
-	local convert = function(c)
-		c = math.floor(c * (100 + percent) / 100 + 0.5)
-		return c > 255 and 255 or c
-	end
+  local convert = function(c)
+    c = math.floor(c * (100 + percent) / 100 + 0.5)
+    return c > 255 and 255 or c
+  end
 
-	return ("#%02x%02x%02x"):format(convert(r), convert(g), convert(b))
+  return ("#%02x%02x%02x"):format(convert(r), convert(g), convert(b))
 end
 
 -- ************** Palette **************
@@ -62,7 +62,8 @@ local hl = {}
 hl["Normal"] = { fg = fg, bg = bg }
 hl["NormalFloat"] = { fg = fgfloat, bg = bgfloat }
 hl["FloatBorder"] = { fg = bgfloat_accent, bg = hl["NormalFloat"]["bg"] }
-hl["FloatTitle"] = { fg = important, bg = hl["NormalFloat"]["bg"], sp = bg_block }
+hl["FloatTitle"] =
+  { fg = important, bg = hl["NormalFloat"]["bg"], sp = bg_block }
 hl["WinSeparator"] = { fg = hl["NormalFloat"]["bg"] }
 
 -- elements
@@ -221,7 +222,7 @@ hl["@module.latex"] = { link = "Function" }
 hl["@punctuation.special.latex"] = { link = "Function" }
 
 for level = 1, 4 do
-	hl["@markup.heading." .. level .. ".latex"] = { link = "String" }
+  hl["@markup.heading." .. level .. ".latex"] = { link = "String" }
 end
 
 -- Markdown
@@ -234,35 +235,36 @@ hl["@markup.raw.markdown_inline"] = { fg = keyword, bg = bg_block }
 hl["@punctuation.special.markdown"] = { link = "@markup.quote.markdown" }
 
 for level = 1, 6 do
-	local heading = "@markup.heading." .. level .. ".markdown"
-	hl[heading] = { fg = important }
+  local heading = "@markup.heading." .. level .. ".markdown"
+  hl[heading] = { fg = important }
 end
 
 -- Comment keywords
 for comment_type, color in pairs({
-	error = { bg = error, fg = fg },
-	danger = { bg = error, fg = fg },
-	warning = { bg = warn, fg = bg },
-	todo = { bg = keyword, fg = bg },
-	note = { bg = fg, fg = bg },
+  error = { bg = error, fg = fg },
+  danger = { bg = error, fg = fg },
+  warning = { bg = warn, fg = bg },
+  todo = { bg = keyword, fg = bg },
+  note = { bg = fg, fg = bg },
 }) do
-	hl["@comment." .. comment_type] = color
-	hl["@comment." .. comment_type .. ".comment"] = color
+  hl["@comment." .. comment_type] = color
+  hl["@comment." .. comment_type .. ".comment"] = color
 end
 
 -- ************** LSP **************
 -- Diagnostics
 for type, color in pairs({
-	Error = error,
-	Warn = warn,
-	Info = info,
-	Hint = fgfloat,
-	Ok = raw_text,
+  Error = error,
+  Warn = warn,
+  Info = info,
+  Hint = fgfloat,
+  Ok = raw_text,
 }) do
-	hl["Diagnostic" .. type] = { fg = color }
-	hl["DiagnosticSign" .. type] = { fg = color }
-	hl["DiagnosticVirtualText" .. type] = { fg = color }
-	hl["DiagnosticUnderline" .. type] = { sp = tint(color, -15), undercurl = true }
+  hl["Diagnostic" .. type] = { fg = color }
+  hl["DiagnosticSign" .. type] = { fg = color }
+  hl["DiagnosticVirtualText" .. type] = { fg = color }
+  hl["DiagnosticUnderline" .. type] =
+    { sp = tint(color, -15), undercurl = true }
 end
 hl["DiagnosticUnnecessary"] = { fg = hl["Comment"]["fg"], undercurl = true }
 
@@ -271,7 +273,7 @@ hl["LspSignatureActiveParameter"] = { sp = fg, underline = true }
 
 -- Semantic Tokens
 for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-	vim.api.nvim_set_hl(0, group, {})
+  vim.api.nvim_set_hl(0, group, {})
 end
 
 -- ************** PLUGINS **************
@@ -346,7 +348,8 @@ hl["AerialNormal"] = { link = "" }
 hl["EdgyIcon"] = { fg = fg_inactive, bg = hl["NormalFloat"]["bg"] }
 hl["EdgyIconActive"] = { link = "EdgyIcon" }
 hl["EdgyTitle"] = { link = "NormalFloat" }
-hl["EdgyWinBar"] = { bg = hl["NormalFloat"]["bg"], underline = true, sp = bg_block }
+hl["EdgyWinBar"] =
+  { bg = hl["NormalFloat"]["bg"], underline = true, sp = bg_block }
 
 -- hrsh7th/nvim-cmp
 hl["CmpItemAbbrDeprecated"] = { strikethrough = true }
@@ -387,7 +390,8 @@ hl["BlinkCmpLabel"] = { fg = fgfloat }
 hl["BlinkCmpLabelDetail"] = { link = "NonText" }
 hl["BlinkCmpLabelDescription"] = { fg = fg_inactive_dark }
 hl["BlinkCmpLabelMatch"] = { link = "PmenuMatch" }
-hl["BlinkCmpMenuBorder"] = { fg = hl["FloatBorder"]["fg"], bg = hl["Pmenu"]["bg"] }
+hl["BlinkCmpMenuBorder"] =
+  { fg = hl["FloatBorder"]["fg"], bg = hl["Pmenu"]["bg"] }
 hl["BlinkCmpMenuSelection"] = { link = "PmenuMatchSel" }
 
 -- rrethy/vim-illuminate
@@ -410,5 +414,5 @@ hl["VisualMatch"] = { link = "MatchParen" }
 
 -- ************** EXECUTE **************
 for group, opts in pairs(hl) do
-	vim.api.nvim_set_hl(0, group, opts)
+  vim.api.nvim_set_hl(0, group, opts)
 end
