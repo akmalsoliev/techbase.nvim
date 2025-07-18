@@ -1,20 +1,6 @@
-vim.g.colors_name = "uac_office"
+local tint = require("utils").tint
 
----lighten or darken a HEX colour by `percent`
----@param hex string
----@param percent number positive = lighter, negative = darker
----@return string
-local function tint(hex, percent)
-  local r, g, b = hex:match("^#?(%x%x)(%x%x)(%x%x)$")
-  r, g, b = tonumber(r, 16), tonumber(g, 16), tonumber(b, 16)
-
-  local convert = function(c)
-    c = math.floor(c * (100 + percent) / 100 + 0.5)
-    return c > 255 and 255 or c
-  end
-
-  return ("#%02x%02x%02x"):format(convert(r), convert(g), convert(b))
-end
+vim.g.colors_name = "uac-hq-93"
 
 -- ************** Palette **************
 -- foreground
@@ -24,18 +10,18 @@ local fg_inactive = "#8A8DA7"
 local fgfloat = "#000000"
 
 -- background
-local bg = "#C6CCD6"
-local bg_accent = "#A3AAB7"
-local bg_block = "#C7CCD3"
-local bgfloat = "#AAB9D4"
-local bgfloat_accent = "#7890BC"
-local bgfloat_select = "#99ABCB"
+local bg = "#F2F4F6"
+local bg_accent = "#E2E6EF"
+local bg_block = "#D1D9E7"
+local bgfloat = "#DFE4EE"
+local bgfloat_accent = "#BBC7DD"
+local bgfloat_select = "#CFD7E7"
 
 -- accent
-local v_select = "#B1B1D6"
-local v_select_nontext = "#9090C4"
-local string = "#2E9667"
-local raw_text = "#226F4C"
+local v_select = "#93BEE9"
+local v_select_nontext = "#69A5E0"
+local string = "#008080"
+local raw_text = "#005C5C"
 local operator = "#516663"
 local constant = "#7C70DA"
 local keyword = "#6666FF"
@@ -52,7 +38,7 @@ local error = "#F71735"
 local git_add_fg = "#42504E"
 local git_add_bg = "#A5B1B5"
 local git_delete_bg = "#F3BABF"
-local git_delete_fg = "#341c28"
+local git_delete_fg = "#8b0000"
 local git_change = "#5E7CE2"
 
 local hl = {}
