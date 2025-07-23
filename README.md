@@ -5,7 +5,10 @@
 
 > You have entered deeply into the infested starport. But something is wrong.
 
-A colorscheme inspired by [Techbase-style](https://doomwiki.org/wiki/Techbase_map) DOOM maps, 1990's conceptions of future technologies, and sci-fi horror.
+A colorscheme inspired by [Techbase-style](https://doomwiki.org/wiki/Techbase_map) DOOM maps, 1990's technology and conceptions of future technologies, and sci-fi and cosmic horror.
+
+<img width="2370" height="1673" alt="techbase-markdown" src="https://github.com/user-attachments/assets/98cfec31-039b-4916-a661-8cd5ca451601" />
+<img width="2242" height="1690" alt="techbase-react" src="https://github.com/user-attachments/assets/cd31475d-8719-4f48-8e24-8b8dc7cba51e" />
 
 ## Installation
 
