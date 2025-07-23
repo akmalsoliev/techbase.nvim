@@ -3,9 +3,9 @@
 <br>
 <br>
 
-A colorscheme that intends to remind me of [Techbase-style](https://doomwiki.org/wiki/Techbase_map) maps and retro-futuristic technology.
+> You have entered deeply into the infested starport. But something is wrong.
 
-<img width="2560" height="1440" alt="jpcp-m19_passage-to-hell" src="https://github.com/user-attachments/assets/c52533b5-b9ff-46ed-83bb-954e7c639c72" />
+A colorscheme inspired by [Techbase-style](https://doomwiki.org/wiki/Techbase_map) DOOM maps, 1990's conceptions of future technologies, and sci-fi horror.
 
 ## Installation
 
