@@ -12,7 +12,7 @@ local quote_fg = "#7E8193"
 
 -- background
 local normal_bg = "#191d23"
-local panel_bg = "#1B2026"
+local panel_bg = "#1B1F25"
 local float_bg = "#1C2127"
 local normal_bg_alt = "#20252E"
 local normal_bg_accent = "#242932"
