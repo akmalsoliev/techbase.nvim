@@ -1,7 +1,6 @@
 <img width="535" height="40" alt="techbase-logo" src="https://github.com/user-attachments/assets/5d027d2f-e29e-4193-943c-6cc1ffbf3221" />
 
 <br>
-<br>
 
 > You have entered deeply into the infested starport. But something is wrong.
 
