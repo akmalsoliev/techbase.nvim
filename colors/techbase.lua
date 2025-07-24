@@ -1,4 +1,4 @@
-local tint = require("utils").tint
+local tint = require("techbase.utils").tint
 
 vim.g.colors_name = "techbase"
 
