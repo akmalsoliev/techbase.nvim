@@ -1,97 +1,106 @@
-local tint = require("utils").tint
-
-vim.g.colors_name = "uac-hq-93"
+local tint = require("techbase.utils").tint
 
 -- ************** Palette **************
 -- foreground
-local fg = "#191d23"
-local fg_inactive_light = "#A7A9BD"
-local fg_inactive = "#8A8DA7"
-local fgfloat = "#000000"
+local normal_fg = "#CCD5E5"
+local float_fg = "#D6DDEA"
+local nontext_fg = "#363848"
+local comment_fg = "#474B65"
+local quote_fg = "#7E8193"
 
 -- background
-local bg = "#F2F4F6"
-local bg_accent = "#E2E6EF"
-local bg_block = "#D1D9E7"
-local bgfloat = "#DFE4EE"
-local bgfloat_accent = "#BBC7DD"
-local bgfloat_select = "#CFD7E7"
+local normal_bg = "#191d23"
+local panel_bg = "#1B1F25"
+local float_bg = "#1C2127"
+local normal_bg_alt = "#20252E"
+local normal_bg_accent = "#242932"
+local float_bg_border = "#2A2F39"
+local float_bg_select = "#1F242D"
 
 -- accent
-local v_select = "#93BEE9"
-local v_select_nontext = "#69A5E0"
-local string = "#008080"
-local raw_text = "#005C5C"
-local operator = "#516663"
-local constant = "#7C70DA"
-local keyword = "#6666FF"
-local important = "#3636FF"
-local search = "#C8872B"
-local number = "#A75255"
+local v_select = "#121E42"
+local v_select_nontext = "#4833A4"
+local string = "#74BAA8"
+local raw_string = "#0EC256"
+local cursor = "#5DCD9A"
+local operator = "#b09884"
+local constant = "#BCB6EC"
+local keyword = "#A9B9EF"
+local important = "#6A8BE3"
+local search = "#E9B872"
+local number = "#B85B53"
 
 -- notifications
-local info = "#A16C9D"
-local warn = "#E38100"
+local info = "#1A8C9B"
+local warn = "#FFA630"
 local error = "#F71735"
 
 -- git
-local git_add_fg = "#42504E"
-local git_add_bg = "#A5B1B5"
-local git_delete_bg = "#F3BABF"
-local git_delete_fg = "#8b0000"
-local git_change = "#5E7CE2"
+local git_add_fg = "#9FDACC"
+local git_add_bg = "#1E3A34"
+local git_add_col = "#366A4C"
+local git_delete_fg = "#FFC0C5"
+local git_delete_bg = "#3A1A21"
+local git_delete_col = "#942B27"
+local git_change_fg = "#B7C4FF"
+local git_change_bg = "#1F2B5C"
+local git_change_col = "#3F58BB"
 
 local hl = {}
 
 -- ************** UI **************
 -- windows
-hl["Normal"] = { fg = fg, bg = bg }
-hl["NormalFloat"] = { fg = fgfloat, bg = bgfloat }
-hl["FloatBorder"] = { fg = bgfloat_accent, bg = hl["NormalFloat"]["bg"] }
-hl["FloatTitle"] =
-  { fg = important, bg = hl["NormalFloat"]["bg"], sp = bg_block }
-hl["WinSeparator"] = { fg = hl["NormalFloat"]["bg"] }
+hl["Normal"] = { fg = normal_fg, bg = normal_bg }
+hl["NormalFloat"] = { fg = float_fg, bg = float_bg }
+hl["FloatBorder"] = { fg = float_bg_border, bg = float_bg }
+hl["FloatTitle"] = { fg = important, bg = float_bg }
+hl["WinSeparator"] = { fg = normal_bg_alt }
+
+-- diff
+hl["Added"] = { fg = git_add_fg, bg = git_add_bg }
+hl["Changed"] = { fg = git_change_fg, bg = git_change_bg }
+hl["Removed"] = { fg = git_delete_fg, bg = git_delete_bg }
 
 -- elements
 hl["ColorColumn"] = {}
-hl["Conceal"] = { link = "Normal" }
-hl["CurSearch"] = { fg = bg, bg = number }
-hl["Cursor"] = { bg = raw_text }
-hl["CursorLine"] = { bg = bg_accent }
-hl["CursorLineNr"] = { link = "Normal" }
-hl["Delimiter"] = { link = "Normal" }
+hl["Conceal"] = { fg = "fg" }
+hl["CurSearch"] = { fg = normal_bg, bg = number }
+hl["Cursor"] = { bg = cursor }
+hl["CursorLine"] = { bg = normal_bg_accent }
+hl["CursorLineNr"] = { fg = "fg" }
+hl["Delimiter"] = { fg = "fg" }
 hl["Directory"] = { fg = important }
 hl["EndOfBuffer"] = { link = "NonText" }
 hl["Error"] = { fg = error }
 hl["ErrorMsg"] = { link = "Error" }
 hl["FoldColumn"] = { link = "NonText" }
-hl["Folded"] = { fg = keyword, bg = bg_accent }
+hl["Folded"] = { fg = keyword, bg = normal_bg_accent }
 hl["IncSearch"] = { link = "Search" }
 hl["LineNr"] = { link = "NonText" }
-hl["MatchParen"] = { fg = search, bg = bg_block }
+hl["MatchParen"] = { fg = search, bg = normal_bg_alt }
 hl["ModeMsg"] = { fg = constant }
 hl["MoreMsg"] = { link = "ModeMsg" }
-hl["MsgArea"] = { link = "Normal" }
-hl["MsgSeparator"] = { fg = bgfloat }
-hl["NonText"] = { fg = fg_inactive_light }
-hl["Pmenu"] = { fg = fgfloat, bg = bgfloat }
+hl["MsgArea"] = { fg = "fg" }
+hl["MsgSeparator"] = { fg = float_bg }
+hl["NonText"] = { fg = nontext_fg }
+hl["Pmenu"] = { fg = float_fg, bg = float_bg }
 hl["PmenuMatch"] = { fg = important }
 hl["PmenuSbar"] = { link = "Pmenu" }
-hl["PmenuSel"] = { bg = bgfloat_select }
+hl["PmenuSel"] = { bg = float_bg_select }
 hl["PmenuMatchSel"] = { link = "PmenuSel" }
-hl["PmenuThumb"] = { bg = fg_inactive_light }
+hl["PmenuThumb"] = { bg = nontext_fg }
 hl["Question"] = { fg = string }
 hl["QuickFixLine"] = { link = "Search" }
-hl["Search"] = { fg = bg, bg = search }
-hl["SignColumn"] = { link = "Normal" }
+hl["Search"] = { fg = normal_bg, bg = search }
+hl["SignColumn"] = { fg = "fg" }
 hl["SpecialChar"] = { link = "Special" }
 hl["SpecialComment"] = { fg = search }
 hl["SpecialKey"] = { fg = search }
-hl["StatusLine"] = { fg = fg }
+hl["StatusLine"] = { fg = normal_fg }
 hl["StatusLineNC"] = {}
-hl["Substitute"] = { fg = string, bg = bg_block }
-hl["TabLine"] = { fg = fg_inactive, bg = bg }
-hl["TabLineFill"] = { fg = fg_inactive_light, bg = bg }
+hl["Substitute"] = { fg = string, bg = normal_bg_alt }
+hl["TabLine"] = { fg = comment_fg, bg = normal_bg }
+hl["TabLineFill"] = { fg = nontext_fg, bg = normal_bg }
 hl["TabLineSel"] = { fg = important }
 hl["TermCursor"] = { link = "Cursor" }
 hl["Title"] = { link = "Directory" }
@@ -99,11 +108,12 @@ hl["Todo"] = { link = "SpecialComment" }
 hl["Visual"] = { bg = v_select }
 hl["WarningMsg"] = { link = "Error" }
 hl["Whitespace"] = { link = "NonText" }
-hl["WinBar"] = { fg = fgfloat }
+hl["WinBar"] = { fg = float_fg }
 hl["WinBarNC"] = { link = "WinBar" }
 
 -- ************** SYNTAX **************
-hl["Comment"] = { fg = fg_inactive }
+
+hl["Comment"] = { fg = comment_fg }
 hl["Constant"] = { fg = constant }
 hl["Function"] = { fg = important }
 hl["Keyword"] = { fg = keyword }
@@ -118,32 +128,32 @@ hl["Conditional"] = { link = "Statement" }
 hl["Define"] = { link = "PreProc" }
 hl["Exception"] = { link = "Statement" }
 hl["Float"] = { link = "Number" }
-hl["Identifier"] = { link = "Normal" }
+hl["Identifier"] = { fg = "fg" }
 hl["Include"] = { link = "PreProc" }
 hl["Label"] = { link = "Conditional" }
 hl["Macro"] = { link = "PreProc" }
 hl["PreCondit"] = { link = "PreProc" }
-hl["PreProc"] = { link = "Normal" }
+hl["PreProc"] = { fg = "fg" }
 hl["Repeat"] = { link = "Conditional" }
-hl["Special"] = { link = "Normal" }
+hl["Special"] = { fg = "fg" }
 hl["Statement"] = { link = "Keyword" }
 hl["StorageClass"] = { link = "Type" }
 hl["Structure"] = { link = "Type" }
-hl["Tag"] = { link = "Normal" }
+hl["Tag"] = { fg = "fg" }
 hl["Typedef"] = { link = "Type" }
 
 -- ************** FILETYPE **************
 -- diff
-hl["DiffAdd"] = { fg = git_add_fg, bg = git_add_bg }
-hl["DiffChange"] = { bg = tint(git_change, -40) }
-hl["DiffDelete"] = { fg = git_delete_fg, bg = git_delete_bg }
+hl["DiffAdd"] = { link = "Added" }
+hl["DiffChange"] = { link = "Changed" }
+hl["DiffDelete"] = { link = "Removed" }
 hl["DiffText"] = { bg = important }
 
 -- Gitcommit diffs
 -- https://github.com/vim/vim/blob/c54f347d63bcca97ead673d01ac6b59914bb04e5/runtime/syntax/diff.vim
-hl["diffAdded"] = { link = "DiffAdd" }
-hl["diffChanged"] = { link = "DiffChange" }
-hl["diffRemoved"] = { link = "DiffDelete" }
+hl["diffAdded"] = { link = "Added" }
+hl["diffChanged"] = { link = "Changed" }
+hl["diffRemoved"] = { link = "Removed" }
 
 -- Gitcommit (info above the diff in a commit)
 -- https://github.com/vim/vim/blob/2f0936cb9a2eb026acac03e6a8fd0b2a5d97508b/runtime/syntax/gitcommit.vim
@@ -152,28 +162,28 @@ hl["gitcommitOnBranch"] = {}
 hl["gitcommitType"] = { fg = constant }
 
 hl["gitcommitArrow"] = { link = "Statement" }
-hl["gitcommitBlank"] = { link = "DiffAdd" }
-hl["gitcommitBranch"] = { link = "DiffAdd" }
-hl["gitcommitDiscarded"] = { link = "DiffAdd" }
-hl["gitcommitDiscardedFile"] = { link = "DiffAdd" }
-hl["gitcommitDiscardedType"] = { link = "DiffDelete" }
+hl["gitcommitBlank"] = { link = "Added" }
+hl["gitcommitBranch"] = { link = "Added" }
+hl["gitcommitDiscarded"] = { link = "Added" }
+hl["gitcommitDiscardedFile"] = { link = "Added" }
+hl["gitcommitDiscardedType"] = { link = "Removed" }
 hl["gitcommitSummary"] = { link = "Directory" }
-hl["gitcommitUnmerged"] = { link = "DiffAdd" }
+hl["gitcommitUnmerged"] = { link = "Added" }
 
 -- Help
 -- https://github.com/vim/vim/blob/2d8ed0203aedd5f6c22efa99394a3677c17c7a7a/runtime/syntax/help.vim
-hl["helpCommand"] = { link = "Normal" }
+hl["helpCommand"] = { fg = "fg" }
 hl["helpExample"] = { link = "String" }
 hl["helpHyperTextEntry"] = { link = "Directory" }
-hl["helpOption"] = { link = "Normal" }
-hl["helpVim"] = { link = "Normal" }
+hl["helpOption"] = { fg = "fg" }
+hl["helpVim"] = { fg = "fg" }
 
 -- Markdown
-hl["markdownBlockquote"] = { fg = keyword }
-hl["markdownCodeBlock"] = { bg = bg_block }
+hl["markdownBlockquote"] = { fg = quote_fg }
+hl["markdownCodeBlock"] = { bg = normal_bg_alt }
 hl["markdownHeadingRule"] = { link = "markdownRule" }
 hl["markdownLinkText"] = { link = "String" }
-hl["markdownListMarker"] = { link = "Normal" }
+hl["markdownListMarker"] = { fg = "fg" }
 hl["markdownRule"] = { link = "NonText" }
 hl["markdownUrl"] = { link = "@text.uri" }
 
@@ -183,23 +193,25 @@ hl["dosiniLabel"] = { link = "@property" }
 
 -- ************** TREESITTER **************
 -- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md#highlights
-hl["@variable"] = { link = "Normal" }
+hl["@constant.builtin"] = { link = "Constant" }
+hl["@function.call"] = { fg = "fg" }
+hl["@function.method.call"] = { fg = "fg" }
+hl["@markup.heading"] = { link = "Function" }
+hl["@markup.raw.block"] = { link = "markdownCodeBlock" }
+hl["@method.call"] = { fg = "fg" }
+hl["@module"] = { fg = "fg" }
 hl["@namespace"] = { fg = important }
 hl["@number.comment"] = { link = "Comment" }
-hl["@punctuation"] = { link = "Normal" }
-hl["@string.regex"] = { fg = raw_text }
-hl["@markup.raw.block"] = { link = "markdownCodeBlock" }
-hl["@text.uri"] = { fg = keyword, underline = true }
-hl["@constant.builtin"] = { link = "Constant" }
-hl["@function.call"] = { link = "Normal" }
-hl["@markup.heading"] = { link = "Function" }
-hl["@method.call"] = { link = "Normal" }
-hl["@property"] = { link = "Normal" }
+hl["@property"] = { fg = "fg" }
+hl["@punctuation"] = { fg = "fg" }
 hl["@string.documentation"] = { link = "Comment" }
 hl["@string.escape"] = { link = "@string.regex" }
-hl["@string.special"] = { link = "@string.regex" }
-hl["@text.literal"] = { link = "Normal" }
+hl["@string.regex"] = { fg = raw_string }
+hl["@string.special.symbol"] = { link = "@string.regex" }
+hl["@text.literal"] = { fg = "fg" }
 hl["@text.reference"] = { link = "String" }
+hl["@text.uri"] = { fg = keyword, underline = true }
+hl["@type.builtin"] = { link = "@type" }
 
 -- Latex
 hl["@markup.link.label"] = { link = "String" }
@@ -214,11 +226,11 @@ end
 
 -- Markdown
 hl["@conceal.markdown_inline"] = { link = "Operator" }
-hl["@markup.link.markdown_inline"] = { link = "Normal" }
+hl["@markup.link.markdown_inline"] = { fg = "fg" }
 hl["@markup.list.checked.markdown"] = { link = "DiagnosticOk" }
 hl["@markup.list.unchecked.markdown"] = { link = "DiagnosticError" }
 hl["@markup.quote.markdown"] = { link = "markdownBlockquote" }
-hl["@markup.raw.markdown_inline"] = { fg = keyword, bg = bg_block }
+hl["@markup.raw.markdown_inline"] = { fg = keyword, bg = normal_bg_alt }
 hl["@punctuation.special.markdown"] = { link = "@markup.quote.markdown" }
 
 for level = 1, 6 do
@@ -228,11 +240,11 @@ end
 
 -- Comment keywords
 for comment_type, color in pairs({
-  error = { bg = error, fg = fg },
-  danger = { bg = error, fg = fg },
-  warning = { bg = warn, fg = bg },
-  todo = { bg = keyword, fg = bg },
-  note = { bg = fg, fg = bg },
+  error = { bg = error, fg = normal_fg },
+  danger = { bg = error, fg = normal_fg },
+  warning = { bg = warn, fg = normal_bg },
+  todo = { bg = keyword, fg = normal_bg },
+  note = { bg = normal_fg, fg = normal_bg },
 }) do
   hl["@comment." .. comment_type] = color
   hl["@comment." .. comment_type .. ".comment"] = color
@@ -244,8 +256,8 @@ for type, color in pairs({
   Error = error,
   Warn = warn,
   Info = info,
-  Hint = fgfloat,
-  Ok = raw_text,
+  Hint = float_fg,
+  Ok = raw_string,
 }) do
   hl["Diagnostic" .. type] = { fg = color }
   hl["DiagnosticSign" .. type] = { fg = color }
@@ -255,8 +267,8 @@ for type, color in pairs({
 end
 hl["DiagnosticUnnecessary"] = { fg = hl["Comment"]["fg"], undercurl = true }
 
-hl["LspCodeLens"] = { fg = fg_inactive_light }
-hl["LspSignatureActiveParameter"] = { sp = fg, underline = true }
+hl["LspCodeLens"] = { fg = nontext_fg }
+hl["LspSignatureActiveParameter"] = { sp = normal_fg, underline = true }
 
 -- Semantic Tokens
 for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
@@ -265,9 +277,8 @@ end
 
 -- ************** PLUGINS **************
 -- folke/lazy.nvim
-hl["LazyButton"] = { bg = bg_block }
+hl["LazyButton"] = { bg = float_bg_select }
 hl["LazyH2"] = { link = "FloatTitle" }
-hl["LazyButton"] = { bg = bg_block }
 hl["LazyButtonActive"] = { link = "Search" }
 hl["LazyCommit"] = { link = "" }
 hl["LazyCommitType"] = { link = "@markup.heading.gitcommit" }
@@ -293,9 +304,9 @@ hl["MasonNormal"] = { link = "NormalFloat" }
 hl["MasonHeading"] = { link = "FloatTitle" }
 hl["MasonWarning"] = { link = "DiagnosticWarn" }
 hl["MasonBackdrop"] = { link = "NormalFloat" }
-hl["MasonHighlight"] = { fg = fg_inactive }
-hl["MasonHighlightBlock"] = { bg = bg_block }
-hl["MasonMutedBlock"] = { bg = bg_block }
+hl["MasonHighlight"] = { fg = comment_fg }
+hl["MasonHighlightBlock"] = { bg = normal_bg_alt }
+hl["MasonMutedBlock"] = { bg = normal_bg_alt }
 hl["MasonMutedBlockBold"] = { link = "Comment" }
 hl["MasonHeaderSecondary"] = { link = "Search" }
 hl["MasonHighlightBlockBold"] = { link = "Search" }
@@ -304,39 +315,39 @@ hl["MasonHighlightBlockSecondary"] = {}
 hl["MasonHighlightBlockBoldSecondary"] = {}
 
 -- lewis6991/gitsigns.nvim
-hl["GitSignsAdd"] = { fg = tint(raw_text, -25) }
-hl["GitSignsChange"] = { fg = tint(important, -25) }
-hl["GitSignsDelete"] = { fg = tint(error, -25) }
+hl["GitSignsAdd"] = { fg = git_add_col }
+hl["GitSignsChange"] = { fg = git_change_col }
+hl["GitSignsDelete"] = { fg = git_delete_col }
 hl["GitSignsChangedelete"] = { link = "GitSignsChange" }
 hl["GitSignsTopdelete"] = { link = "GitSignsDelete" }
 hl["GitSignsUntracked"] = { link = "NonText" }
-hl["GitSignsStagedAdd"] = { fg = tint(raw_text, -60) }
-hl["GitSignsStagedChange"] = { fg = tint(important, -60) }
-hl["GitSignsStagedDelete"] = { fg = tint(error, -60) }
+hl["GitSignsStagedAdd"] = { fg = tint(git_add_col, -50) }
+hl["GitSignsStagedChange"] = { fg = tint(git_change_col, -50) }
+hl["GitSignsStagedDelete"] = { fg = tint(git_delete_col, -50) }
 hl["GitSignsStagedChangedelete"] = { link = "GitSignsStagedChange" }
 hl["GitSignsStagedTopdelete"] = { link = "GitSignsStagedDelete" }
 hl["GitSignsStagedUntracked"] = { link = "GitSignsStagedAdd" }
 hl["GitSignsCurrentLineBlame"] = { link = "NonText" }
-hl["GitSignsAddInline"] = { link = "DiffAdd" }
-hl["GitSignsAddLnInline"] = { fg = "fg", bg = tint(hl["DiffAdd"].bg, 75) }
-hl["GitSignsDeleteInline"] = { link = "DiffDelete" }
-hl["GitSignsDeleteLnInline"] = { fg = "fg", bg = tint(hl["DiffDelete"].bg, 75) }
+hl["GitSignsAddInline"] = { link = "Added" }
+hl["GitSignsAddLnInline"] = { fg = "fg", bg = tint(git_add_bg, 75) }
+hl["GitSignsDeleteInline"] = { link = "Removed" }
+hl["GitSignsDeleteLnInline"] = { fg = "fg", bg = tint(git_delete_bg, 75) }
 hl["GitSignsChangeInline"] = { link = "DiffText" }
-hl["GitSignsChangeLnInline"] = { link = "DiffChange" }
-hl["GitSignsDeleteVirtLn"] = { link = "DiffDelete" }
-hl["GitSignsDeleteVirtLnInLine"] = { link = "DiffDelete" }
+hl["GitSignsChangeLnInline"] = { link = "Changed" }
+hl["GitSignsDeleteVirtLn"] = { link = "Removed" }
+hl["GitSignsDeleteVirtLnInLine"] = { link = "Removed" }
 hl["GitSignsVirtLnum"] = { link = "LineNr" }
 
 -- stevearc/aerial.nvim
-hl["AerialLine"] = { link = "PmenuSel" }
+hl["AerialLine"] = { bg = float_bg_select }
 hl["AerialNormal"] = { link = "" }
 
 -- folke/edgy.nvim
-hl["EdgyIcon"] = { fg = fg_inactive, bg = hl["NormalFloat"]["bg"] }
+hl["EdgyNormal"] = { fg = comment_fg, bg = panel_bg }
+hl["EdgyIcon"] = { fg = comment_fg, bg = panel_bg }
 hl["EdgyIconActive"] = { link = "EdgyIcon" }
-hl["EdgyTitle"] = { link = "NormalFloat" }
-hl["EdgyWinBar"] =
-  { bg = hl["NormalFloat"]["bg"], underline = true, sp = bg_block }
+hl["EdgyWinBar"] = { bg = panel_bg, underline = true, sp = normal_bg_alt }
+hl["EdgyTitle"] = { bg = panel_bg }
 
 -- hrsh7th/nvim-cmp
 hl["CmpItemAbbrDeprecated"] = { strikethrough = true }
@@ -344,38 +355,14 @@ hl["CmpItemAbbrMatch"] = { link = "PmenuMatch" }
 hl["CmpItemKind"] = { link = "Keyword" }
 
 -- saghen/blink.cmp
-hl["BlinkCmpDocBorder"] = { link = "FloatBorder" }
-hl["BlinkCmpDocSeparator"] = { link = "NonText" }
+hl["BlinkCmpDoc"] = { link = "Pmenu" }
+hl["BlinkCmpDocBorder"] = { fg = float_bg_border, bg = float_bg }
+hl["BlinkCmpDocSeparator"] = { fg = float_bg_border }
 hl["BlinkCmpGhostText"] = { link = "NonText" }
 hl["BlinkCmpKind"] = { fg = important }
--- hl["BlinkCmpKindEnum"] = { fg = important }
--- hl["BlinkCmpKindFile"] = { fg = important }
--- hl["BlinkCmpKindText"] = { fg = important }
--- hl["BlinkCmpKindUnit"] = { fg = important }
--- hl["BlinkCmpKindClass"] = { fg = important }
--- hl["BlinkCmpKindColor"] = { fg = important }
--- hl["BlinkCmpKindEvent"] = { fg = important }
--- hl["BlinkCmpKindField"] = { fg = important }
--- hl["BlinkCmpKindValue"] = { fg = important }
--- hl["BlinkCmpKindFolder"] = { fg = important }
--- hl["BlinkCmpKindMethod"] = { fg = important }
--- hl["BlinkCmpKindModule"] = { fg = important }
--- hl["BlinkCmpKindStruct"] = { fg = important }
--- hl["BlinkCmpKindKeyword"] = { fg = important }
--- hl["BlinkCmpKindSnippet"] = { fg = important }
--- hl["BlinkCmpKindConstant"] = { fg = important }
--- hl["BlinkCmpKindFunction"] = { fg = important }
--- hl["BlinkCmpKindOperator"] = { fg = important }
--- hl["BlinkCmpKindProperty"] = { fg = important }
--- hl["BlinkCmpKindVariable"] = { fg = important }
--- hl["BlinkCmpKindInterface"] = { fg = important }
--- hl["BlinkCmpKindReference"] = { fg = important }
--- hl["BlinkCmpKindEnumMember"] = { fg = important }
--- hl["BlinkCmpKindConstructor"] = { fg = important }
--- hl["BlinkCmpKindTypeParameter"] = { fg = important }
-hl["BlinkCmpLabel"] = { fg = fgfloat }
+hl["BlinkCmpLabel"] = { fg = float_fg }
 hl["BlinkCmpLabelDetail"] = { link = "NonText" }
-hl["BlinkCmpLabelDescription"] = { fg = fg_inactive_light }
+hl["BlinkCmpLabelDescription"] = { fg = nontext_fg }
 hl["BlinkCmpLabelMatch"] = { link = "PmenuMatch" }
 hl["BlinkCmpMenuBorder"] =
   { fg = hl["FloatBorder"]["fg"], bg = hl["Pmenu"]["bg"] }
@@ -399,7 +386,4 @@ hl["VisualNonText"] = { fg = v_select_nontext, bg = hl["Visual"]["bg"] }
 -- mcauley-penney/match-visual.nvim
 hl["VisualMatch"] = { link = "MatchParen" }
 
--- ************** EXECUTE **************
-for group, opts in pairs(hl) do
-  vim.api.nvim_set_hl(0, group, opts)
-end
+return hl
