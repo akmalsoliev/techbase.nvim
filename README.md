@@ -22,3 +22,9 @@ With Lazy.nvim:
     priority = 1000
 }
 ```
+
+## Extras
+
+Currently available:
+
+- Kitty
