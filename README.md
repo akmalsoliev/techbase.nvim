@@ -54,3 +54,9 @@ The available options and default configuration are:
     priority = 1000
 }
 ```
+
+## Extras
+
+Currently available:
+
+- Kitty
