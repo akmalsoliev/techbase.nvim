@@ -57,6 +57,9 @@ The available options and default configuration are:
 
 ## Extras
 
-Currently available:
+Matching color configurations are available for:
 
 - Kitty
+- iTerm2
+
+Please see their respective documentation for how to use these color configurations.
