@@ -1,8 +1,11 @@
-<img width="535" height="40" alt="techbase-logo" src="https://github.com/user-attachments/assets/5d027d2f-e29e-4193-943c-6cc1ffbf3221" />
+<img width="1600" height="800" alt="techbase_titlecard" src="https://github.com/user-attachments/assets/3efa3036-3556-42e0-805c-fdcbd3120b1c" />
 
-> You have entered deeply into the infested starport. But something is wrong.
 
-A colorscheme inspired by [Techbase-style](https://doomwiki.org/wiki/Techbase_map) Doom maps, 1990's technology and conceptions of future technologies, and sci-fi and cosmic horror.
+<p align="center">
+<sub><i>You have entered deeply into the infested starport. But something is wrong.</i></sub>
+</p>
+
+A colorscheme inspired by [Techbase-style](https://doomwiki.org/wiki/Techbase_map) Doom maps, 1990's technology and conceptions of future technologies, and sci-fi horror, and cosmic horror.
 
 ## Screenshots
 
