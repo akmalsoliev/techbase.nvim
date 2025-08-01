@@ -1,6 +1,7 @@
 local M = {}
 
 local defaults = {
+  italic_comments = false,
   transparent = false,
   overrides = {},
 }
@@ -13,6 +14,8 @@ end
 
 function M.apply()
   local hl = vim.deepcopy(require("techbase.highlights"))
+
+  hl["Comment"].italic = M.opts.italic_comments
 
   if M.opts.transparent then
     for _, g in ipairs({

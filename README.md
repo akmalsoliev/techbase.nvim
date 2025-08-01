@@ -1,6 +1,5 @@
 <img width="1600" height="800" alt="techbase_titlecard" src="https://github.com/user-attachments/assets/3efa3036-3556-42e0-805c-fdcbd3120b1c" />
 
-
 <p align="center">
 <sub><i>You have entered deeply into the infested starport. But something is wrong.</i></sub>
 </p>
@@ -43,6 +42,8 @@ The available options and default configuration are:
 {
     "mcauley-penney/techbase.nvim",
     opts = {
+      italic_comments = false,
+
       -- set to true to make the background, floating windows, statusline,
       -- signcolumn, foldcolumn, and tabline transparent
       transparent = false,
