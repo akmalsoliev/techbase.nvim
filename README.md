@@ -36,7 +36,7 @@ To use the color scheme with default options with Lazy.nvim:
 }
 ```
 
-The available options and default configuration are:
+A template for using the plugin with non-default options:
 
 ```lua
 {
@@ -48,16 +48,31 @@ The available options and default configuration are:
       -- signcolumn, foldcolumn, and tabline transparent
       transparent = false,
 
+      plugin_support = {
+        aerial = false,
+        blink = false,
+        edgy = false,
+        gitsigns = false,
+        hl_match_area = false,
+        lazy = false,
+        lualine = false,
+        mason = false,
+        mini_cursorword = false,
+        nvim_cmp = false,
+        vim_illuminate = false,
+        visual_whitespace = false,
+      },
+
       -- allows you to override any highlight group for finer-grained control
-      overrides = {},
+      hl_overrides = {},
     },
-    config = function(_, opts)
-        require("techbase").setup(opts)
-        vim.cmd.colorscheme("techbase")
-    end,
+    init = function() vim.cmd.colorscheme("techbase") end,
     priority = 1000
 }
 ```
+
+> [!IMPORTANT]
+> To load the color scheme by default and use non-default options, you should load the options, then the scheme. This is how the template above is set up.
 
 ## Extras
 
